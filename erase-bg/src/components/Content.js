@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import model from "../img/model.png";
 import arrow from "../img/arrow.png";
 import { FaEraser } from "react-icons/fa";
