@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bg-content{
+    background-image: url('./img/bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+@layer components{
+    .animation{
+        @apply transform duration-300 ease-in-out
+    }
+    .btn{
+        @apply text-white bg-c1 px-3 py-2 rounded-md cursor-pointer hover:px-5 animation font-semibold
+    }
+}
