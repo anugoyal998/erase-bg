@@ -20,7 +20,7 @@ def help(url):
     image_bytes = io.BytesIO(base64.b64decode(imgstr))
     im = Image.open(image_bytes)
     img = np.array(im)
-    img = cv2.resize(img,(300,300))
+    img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     segmentor = SelfiSegmentation()
     imgOut = segmentor.removeBG(img,(255,255,255),threshold=0.83)
     imgOut = np.array(imgOut)
@@ -35,7 +35,7 @@ def help(url):
             newData.append(item)
     imgOut.putdata(newData)
     imgOut = np.array(imgOut)
-    _, imagebytes = cv2.imencode('.jpg', imgOut)
+    _, imagebytes = cv2.imencode('.png', imgOut)
     s = base64.b64encode(imagebytes)
     return s
     # cv2.imshow("img",imgOut)

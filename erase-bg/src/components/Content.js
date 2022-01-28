@@ -8,6 +8,7 @@ import { fileState, flagState } from "../atoms/state";
 import After from "./After";
 const Content = () => {
   const file = useRecoilValue(fileState);
+  console.log(file)
   return (
     <div className="bg-content px-10">
       <div className="pt-[15vh]">
@@ -18,13 +19,13 @@ const Content = () => {
         <img
           src={model}
           alt=""
-          className={`w-[40%] duration-500 animation ${file && "w-[0%]"} `}
+          className={`duration-500 animation ${file ? "w-0" : "w-[40%]"}`}
         />
         <img
           src={arrow}
           alt=""
           className={`w-[20%] durattion-500 animation ${
-            file && "w-[0%] hidden"
+            file && "hidden"
           }`}
         />
         <Card />
