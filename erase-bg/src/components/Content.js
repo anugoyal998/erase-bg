@@ -8,24 +8,29 @@ import { fileState, flagState } from "../atoms/state";
 import After from "./After";
 const Content = () => {
   const file = useRecoilValue(fileState);
-  console.log(file)
   return (
-    <div className="bg-content px-10">
-      <div className="pt-[15vh]">
-        <p className="text-gray-700 font-semibold text-5xl">Erase Image</p>
-        <p className="text-gray-700 font-semibold text-3xl">Background</p>
+    <div className="bg-content px-2 sm:px-10 h-screen overflow-y-scroll scrollbar-hide">
+      <div className="pt-[10vh] sm:pt-[15vh]">
+        <p className="text-gray-700 font-semibold text-3xl sm:text-5xl">
+          Erase Image
+        </p>
+        <p className="text-gray-700 font-semibold text-xl sm:text-3xl">
+          Background
+        </p>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center flex-col lg:flex-row">
         <img
           src={model}
           alt=""
-          className={`duration-500 animation ${file ? "w-0" : "w-[40%]"}`}
+          className={`duration-500 animation ${
+            file ? "w-0" : "w-[70%] sm:w-[60%] lg:w-[40%]"
+          }`}
         />
         <img
           src={arrow}
           alt=""
-          className={`w-[20%] durattion-500 animation ${
-            file && "hidden"
+          className={`durattion-500 animation hidden lg:inline-flex ${
+            file ? "w-0" : "w-[20%]"
           }`}
         />
         <Card />
@@ -47,13 +52,14 @@ const Card = () => {
     };
   }, [file]);
   useEffect(() => {
-      if(!file || !flag) return;
-
-  },[file,flag])
+    if (!file || !flag) return;
+  }, [file, flag]);
   return (
     <div
-      className={`bg-white w-full ml-10 ${
-        flag ? "h-[500px]" : "h-[300px]"
+      className={`bg-white w-screen sm:w-[80vw] lg:w-full ${
+        flag ? "h-[400px] sm:h-[500px]" : "h-[300px]"
+      }  ${
+        file ? "ml-0" : "lg:ml-10"
       } shadow-2xl rounded-xl flex justify-center items-center flex-col animation`}
     >
       <div>

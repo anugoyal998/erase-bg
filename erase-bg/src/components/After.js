@@ -25,31 +25,39 @@ const After = () => {
     fetch();
   }, [file]);
   const handleDownloadClick = async () => {
-    await handleDownload(img)
+    await handleDownload(img);
   };
   return (
     <>
       <div className="flex justify-center">
-        <img src={file} alt="" className="w-[40%] h-[300px] bg-black" />
-        <div className="flex items-center ml-10">
+        <img
+          src={file}
+          alt=""
+          className="w-[35vw] sm:w-[30vw] h-[250px] sm:h-[300px]"
+        />
+        <div className="flex items-center mx-3 sm:mx-5 md:mx-10">
           <div className="h-full w-1 border-l-2 border-gray-700 ml-1"></div>
           <div>
             <BsArrowRightCircleFill className="text-gray-700 text-3xl bg-white -ml-[17px]" />
           </div>
         </div>
         {img ? (
-          <div className="flex flex-col justify-center items-center ml-5">
-            <img src={img} alt="" className="w-full h-[250px] border bg-transparent" />
-            <div className="flex items-center justify-center space-x-3 px-10">
+          <div className="flex flex-col justify-center items-center w-[35vw] sm:w-[30vw] h-[250px] sm:h-[300px]">
+            <img
+              src={img}
+              alt=""
+              className="h-[125px] sm:h-[250px] border bg-transparent"
+            />
+            <div className="flex items-center justify-center space-x-1 flex-col sm:flex-row">
               <div
-                className="btn mt-2 flex items-center justify-center space-x-2"
+                className="btn text-sm px-2 mt-2 flex items-center justify-center space-x-2"
                 onClick={handleDownloadClick}
               >
                 <FaCloudDownloadAlt className="text-2xl" />{" "}
                 <span>Download Image</span>
               </div>
               <div
-                className="btn bg-white text-c1 border-2 border-c1 mt-2 flex items-center justify-center space-x-2"
+                className="btn text-sm px-2 bg-white text-c1 border-2 border-c1 mt-2 flex items-center justify-center space-x-1"
                 onClick={() => window.location.reload()}
               >
                 <FaCloudUploadAlt className="text-2xl" />{" "}
